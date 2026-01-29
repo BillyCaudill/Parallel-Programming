@@ -1,0 +1,16 @@
+CXX = g++
+CXXFLAGS = -Wall -std=c++17
+
+TARGET = mergesort
+SRC = mergesort.cpp
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+        $(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+
+run: $(TARGET)
+        ./$(TARGET) 100
+
+clean:
+        rm -f $(TARGET)
