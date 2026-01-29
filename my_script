@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=mergesort
+#SBATCH --partition=Centaurus
+#SBATCH --time=00:01:00
+g++ mergesort.cpp -o mergesort
+./mergesort 100
+./mergesort 1000
+./mergesort 10000
+./mergesort 100000
+./mergesort 1000000
+./mergesort 10000000
+./mergesort 100000000
+./mergesort 1000000000
