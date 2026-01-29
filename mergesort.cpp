@@ -1,71 +1,72 @@
 #include <iostream>
-#include <cstdlib>   // for std::atoi
-
-#include <iostream>
+#include <cstdlib>   // atoi, rand, srand
+#include <ctime>     // time
+#include <chrono>    // timing
 using namespace std;
 
 // Merge two sorted halves of arr[]
-// Left half:  left .. mid
-// Right half: mid+1 .. right
 void merge(int arr[], int left, int mid, int right) {
-    int temp[100];        // temporary array (assume max size)
-    int i = left;         // pointer for left half
-    int j = mid + 1;      // pointer for right half
-    int k = left;         // pointer for temp array
+    int n = right - left + 1;
+    int* temp = new int[n];
 
-    // Merge both halves into temp[]
+    int i = left;        // left half pointer
+    int j = mid + 1;     // right half pointer
+    int k = 0;           // temp pointer (0..n-1)
+
     while (i <= mid && j <= right) {
-        if (arr[i] <= arr[j]) {
+        if (arr[i] <= arr[j])
             temp[k++] = arr[i++];
-        } else {
+        else
             temp[k++] = arr[j++];
-        }
     }
 
-    // Copy remaining elements from left half
-    while (i <= mid) {
+    while (i <= mid)
         temp[k++] = arr[i++];
-    }
-
-    // Copy remaining elements from right half
-    while (j <= right) {
+    while (j <= right)
         temp[k++] = arr[j++];
+
+    for (int x = 0; x < n; x++) {
+        arr[left + x] = temp[x];
     }
 
-    // Copy sorted data back into original array
-    for (int x = left; x <= right; x++) {
-        arr[x] = temp[x];
-    }
+    delete[] temp;
 }
 
-// Recursive merge sort
 void mergeSort(int arr[], int left, int right) {
-    // Base case: one element
-    if (left >= right)
-        return;
+    if (left >= right) return;
 
-    int mid = (left + right) / 2;
-
-    // Sort left half
+    int mid = left + (right - left) / 2;
     mergeSort(arr, left, mid);
-
-    // Sort right half
     mergeSort(arr, mid + 1, right);
-
-    // Merge sorted halves
     merge(arr, left, mid, right);
 }
 
-int main() {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    int n = 6;
-
-    mergeSort(arr, 0, n - 1);
-
-    cout << "Sorted array: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        cout << "Usage: ./mergesort <array_size>\n";
+        return 1;
     }
 
+    int n = atoi(argv[1]);
+    if (n <= 0) {
+        cout << "Error: array_size must be positive\n";
+        return 1;
+    }
+
+    int* arr = new int[n];
+    srand(time(nullptr));
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand();
+    }
+
+    auto start = chrono::high_resolution_clock::now();
+    mergeSort(arr, 0, n - 1);
+    auto end = chrono::high_resolution_clock::now();
+
+    chrono::duration<double> elapsed = end - start;
+    cout << "Sorted " << n << " elements in " << elapsed.count() << " seconds\n";
+
+    delete[] arr;
     return 0;
 }
