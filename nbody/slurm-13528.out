@@ -1,0 +1,76 @@
+make: Nothing to be done for 'all'.
+Loading 10 particles from file...
+Simulation complete! Output saved to output.tsv
+	Command being timed: "./nbody solar.tsv 200 5000000"
+	User time (seconds): 246.18
+	System time (seconds): 6.17
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:15.94
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3744
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2
+	Minor (reclaiming a frame) page faults: 146
+	Voluntary context switches: 1598
+	Involuntary context switches: 5648
+	Swaps: 0
+	File system inputs: 72
+	File system outputs: 8049384
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+Generating 100 random particles...
+Simulation complete! Output saved to output.tsv
+	Command being timed: "./nbody 100 1 10000"
+	User time (seconds): 6.60
+	System time (seconds): 0.30
+	Percent of CPU this job got: 94%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.31
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3744
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 150
+	Voluntary context switches: 2860
+	Involuntary context switches: 83
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 199968
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+Generating 1000 random particles...
+Simulation complete! Output saved to output.tsv
+	Command being timed: "./nbody 1000 1 10000"
+	User time (seconds): 175.05
+	System time (seconds): 0.65
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:56.65
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4032
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 167
+	Voluntary context switches: 3228
+	Involuntary context switches: 632
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 2052696
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
